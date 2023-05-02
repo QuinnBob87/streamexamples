@@ -3,7 +3,7 @@
 import pandas as pd
 import numpy as np
 import altair as alt
-import plotly.express as px
+#import plotly.express as px
 import streamlit as st
 
 df = pd.read_csv('https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv')
@@ -151,7 +151,7 @@ df['region_cases'] = df.groupby('region')['cases'].transform('sum')
 df['region_deaths'] = df.groupby('region')['deaths'].transform('sum')
 df['region_cases_pop'] = df['region_cases']/df['region_population']
 df['region_death_cas'] = df['region_deaths']/df['region_population']
-
+"""
 # graph 1
 graph1 = px.choropleth(df, locations='state_abbrev', locationmode='USA-states',
                     color='cases_pop', scope='usa', title='US Covid Cases by State')
@@ -167,7 +167,7 @@ graph3 = px.choropleth(df, locations='state_abbrev', locationmode='USA-states',
 # graph 4
 graph4 = px.choropleth(df, locations='state_abbrev', locationmode='USA-states',
                     color='region_death_cas', scope='usa', title='US Covid Deaths/Population')
-
+"""
 # graph 5 
 df2 = df[['date', 'population', 'cases', 'deaths', 'region', 'cases_pop']]
 mask = df['date'].dt.year == 2022
@@ -230,10 +230,12 @@ graph8 = alt.Chart(df_grouped).mark_bar().encode(
     height=400,
     title='COVID-19 deaths/Population by Region in 2022'
 )
+"""
 desc1 = "Description for graph 1 goes here"
 desc2 = "Description for graph 2 goes here"
 desc3 = "Description for graph 3 goes here"
 desc4 = "Description for graph 4 goes here"
+"""
 desc5 = "Description for graph 5 goes here"
 desc6 = "Description for graph 6 goes here"
 desc7 = "Description for graph 7 goes here"
@@ -241,6 +243,7 @@ desc8 = "Description for graph 8 goes here"
 
 # Define the pages of your app
 pages = {
+    """
     "Page 1 title": {
         "image": "image1.jpg",
         "description": "Enter your text here"
@@ -249,6 +252,7 @@ pages = {
         "graphs": [st.pyplot(graph1), st.pyplot(graph2)],
         "descriptions": [desc1, desc2]
     },
+    """
     "Page 3 title": {
         "graphs": [st.pyplot(graph3), st.pyplot(graph4)],
         "descriptions": [desc3, desc4]
@@ -265,14 +269,10 @@ pages = {
 
 # Define a function to display the current page
 def display_page(page):
-    if "image" in pages[page]:
-        st.image(pages[page]["image"])
-        st.text_input("Enter your text here")
-    else:
-        for i in range(len(pages[page]["graphs"])):
-            st.subheader(f"Graph {i+1}")
-            pages[page]["graphs"][i]
-            st.write(pages[page]["descriptions"][i])
+    for i in range(len(pages[page]["graphs"])):
+        st.subheader(f"Graph {i+1}")
+         pages[page]["graphs"][i]
+         st.write(pages[page]["descriptions"][i])
 
 # Create the Streamlit app
 st.set_page_config(page_title="My App", page_icon=":chart_with_upwards_trend:")
