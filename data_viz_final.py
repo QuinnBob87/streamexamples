@@ -236,6 +236,7 @@ desc8 = "Histogram of deaths/cases per region in the year 2022"
 pages = {
     "Line graphs": {
         "graphs": [st.pyplot(graph5), st.pyplot(graph6)],
+        'image': st.image(graph5, use_column_width=True, caption="Graph 5"),
         "descriptions": [desc5, desc6]
     },
     "Histogram": {
@@ -246,10 +247,14 @@ pages = {
 
 # Define a function to display the current page
 def display_page(page):
-    for i in range(len(pages[page]["graphs"])):
-        st.subheader(f"Graph {i+1}")
-        pages[page]["graphs"][i]
-        st.write(pages[page]["descriptions"][i])
+    if "image" in pages[page]:
+        st.image(pages[page]["image"])
+        st.text_input("Enter your text here")
+    else:
+        for i in range(len(pages[page]["graphs"])):
+            st.subheader(f"Graph {i+1}")
+            pages[page]["graphs"][i]
+            st.write(pages[page]["descriptions"][i])
 
 # Create the Streamlit app
 st.set_page_config(page_title="My App", page_icon=":chart_with_upwards_trend:")
