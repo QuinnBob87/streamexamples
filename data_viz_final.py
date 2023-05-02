@@ -150,20 +150,23 @@ df['region_cases'] = df.groupby('region')['cases'].transform('sum')
 df['region_deaths'] = df.groupby('region')['deaths'].transform('sum')
 df['region_cases_pop'] = df['region_cases']/df['region_population']
 df['region_death_cas'] = df['region_deaths']/df['region_population']
-"""
+
 # graph 1
 graph1 = px.choropleth(df, locations='state_abbrev', locationmode='USA-states',
-                    color='cases_pop', scope='usa', title='US Covid Cases by State')
+                    color='cases_pop', scope='usa', title='US Covid Cases/Population by State')
+
 # graph 2
 graph2 = px.choropleth(df, locations='state_abbrev', locationmode='USA-states',
-                    color='cases_pop', scope='usa', title='US Covid Cases by State')
+                    color='death_cas', scope='usa', title='US Covid Deaths/Cases by State')
+
 # graph 3
 graph3 = px.choropleth(df, locations='state_abbrev', locationmode='USA-states',
-                    color='region_cases_pop', scope='usa', title='US Covid Cases by State')
+                    color='region_cases_pop', scope='usa', title='US Covid Cases/Population by Region')
+
 # graph 4
 graph4 = px.choropleth(df, locations='state_abbrev', locationmode='USA-states',
-                    color='region_death_cas', scope='usa', title='US Covid Deaths/Population')
-"""
+                    color='region_death_cas', scope='usa', title='US Covid Deaths/Cases by region')
+
 # graph 5 
 df2 = df[['date', 'population', 'cases', 'deaths', 'region', 'cases_pop']]
 mask = df['date'].dt.year == 2022
