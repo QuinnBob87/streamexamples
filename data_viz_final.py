@@ -254,17 +254,13 @@ pages = {
     },
     """
     "Page 3 title": {
-        "graphs": [st.pyplot(graph3), st.pyplot(graph4)],
+        "graphs": [st.pyplot(graph5), st.pyplot(graph6)],
         "descriptions": [desc3, desc4]
     },
     "Page 4 title": {
-        "graphs": [st.pyplot(graph5), st.pyplot(graph6)],
+        "graphs": [st.pyplot(graph7), st.pyplot(graph8)],
         "descriptions": [desc5, desc6]
     },
-    "Page 5 title": {
-        "graphs": [st.pyplot(graph7), st.pyplot(graph8)],
-        "descriptions": [desc7, desc8]
-    }
 }
 
 # Define a function to display the current page
