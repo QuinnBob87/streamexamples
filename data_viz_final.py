@@ -271,8 +271,8 @@ pages = {
 def display_page(page):
     for i in range(len(pages[page]["graphs"])):
         st.subheader(f"Graph {i+1}")
-         pages[page]["graphs"][i]
-         st.write(pages[page]["descriptions"][i])
+        pages[page]["graphs"][i]
+        st.write(pages[page]["descriptions"][i])
 
 # Create the Streamlit app
 st.set_page_config(page_title="My App", page_icon=":chart_with_upwards_trend:")
