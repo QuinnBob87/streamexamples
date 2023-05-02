@@ -3,7 +3,6 @@
 import pandas as pd
 import numpy as np
 import altair as alt
-pip install plotly_express==0.4.0
 import plotly.express as px
 import streamlit as st
 
