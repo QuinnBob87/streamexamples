@@ -1,4 +1,3 @@
-# data enginerring
 #import seaborn as sns
 import pandas as pd
 import numpy as np
@@ -155,15 +154,12 @@ df['region_death_cas'] = df['region_deaths']/df['region_population']
 # graph 1
 graph1 = px.choropleth(df, locations='state_abbrev', locationmode='USA-states',
                     color='cases_pop', scope='usa', title='US Covid Cases by State')
-
 # graph 2
 graph2 = px.choropleth(df, locations='state_abbrev', locationmode='USA-states',
                     color='cases_pop', scope='usa', title='US Covid Cases by State')
-
 # graph 3
 graph3 = px.choropleth(df, locations='state_abbrev', locationmode='USA-states',
                     color='region_cases_pop', scope='usa', title='US Covid Cases by State')
-
 # graph 4
 graph4 = px.choropleth(df, locations='state_abbrev', locationmode='USA-states',
                     color='region_death_cas', scope='usa', title='US Covid Deaths/Population')
@@ -230,36 +226,21 @@ graph8 = alt.Chart(df_grouped).mark_bar().encode(
     height=400,
     title='COVID-19 deaths/Population by Region in 2022'
 )
-"""
-desc1 = "Description for graph 1 goes here"
-desc2 = "Description for graph 2 goes here"
-desc3 = "Description for graph 3 goes here"
-desc4 = "Description for graph 4 goes here"
-"""
-desc5 = "Description for graph 5 goes here"
-desc6 = "Description for graph 6 goes here"
-desc7 = "Description for graph 7 goes here"
-desc8 = "Description for graph 8 goes here"
+
+desc5 = "Line graph of covid cases/population per region in the year 2022"
+desc6 = "Line graph of covid deaths/cases per region in the year 2022"
+desc7 = "Histogram of covid cases/population per region in the year 2022"
+desc8 = "Histogram of deaths/cases per region in the year 2022"
 
 # Define the pages of your app
 pages = {
-    """
-    "Page 1 title": {
-        "image": "image1.jpg",
-        "description": "Enter your text here"
-    },
-    "Page 2 title": {
-        "graphs": [st.pyplot(graph1), st.pyplot(graph2)],
-        "descriptions": [desc1, desc2]
-    },
-    """
-    "Page 3 title": {
+    "Line graphs": {
         "graphs": [st.pyplot(graph5), st.pyplot(graph6)],
-        "descriptions": [desc3, desc4]
-    },
-    "Page 4 title": {
-        "graphs": [st.pyplot(graph7), st.pyplot(graph8)],
         "descriptions": [desc5, desc6]
+    },
+    "Histogram": {
+        "graphs": [st.pyplot(graph7), st.pyplot(graph8)],
+        "descriptions": [desc7, desc8]
     },
 }
 
