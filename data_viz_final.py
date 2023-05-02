@@ -1,9 +1,8 @@
-#import seaborn as sns
 import pandas as pd
 import numpy as np
 import altair as alt
 import matplotlib
-#import plotly.express as px
+import plotly.express as px
 import streamlit as st
 
 df = pd.read_csv('https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv')
