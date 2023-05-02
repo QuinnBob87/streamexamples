@@ -1,1 +1,1 @@
-matplotlib
+plotly_express==0.4.0
